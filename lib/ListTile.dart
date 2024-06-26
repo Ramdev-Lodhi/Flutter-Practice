@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_proj/ui_helper/util.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,31 +50,31 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:
 
-          ListView.separated(
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: CircleAvatar(
-                      // child: Image.asset('assets/images/ramdevlodhi.jpg')
-                    // maxRadius: 20,
-                          backgroundImage: AssetImage('assets/images/ramdevlodhi.jpg'),
-                  ),
-                  title: Text(arrName[index], style: TextStyle(fontSize: 20,fontFamily: 'MyFont',fontWeight: FontWeight.bold)),
-                  subtitle:Text('Hello', style: mTextStyle30(),) ,
-                  trailing: Icon(Icons.add),
-                );
+      ListView.separated(
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(
+                // child: Image.asset('assets/images/ramdevlodhi.jpg')
+                // maxRadius: 20,
+                backgroundImage: AssetImage('assets/images/ramdevlodhi.jpg'),
+              ),
+              title: Text(arrName[index], style: TextStyle(fontSize: 20,fontFamily: 'MyFont',fontWeight: FontWeight.bold)),
+              subtitle:Text('Hello', style: TextStyle(fontSize: 20)) ,
+              trailing: Icon(Icons.add),
+            );
 
 
-              },
-              // reverse: true,
-              // itemExtent: 100,
-              // scrollDirection: Axis.horizontal,
-              separatorBuilder: (context, index) {
-                return Divider(
-                  height: 10,
-                  thickness: 2,
-                );
-              },
-              itemCount: arrName.length),
+          },
+          // reverse: true,
+          // itemExtent: 100,
+          // scrollDirection: Axis.horizontal,
+          separatorBuilder: (context, index) {
+            return Divider(
+              height: 10,
+              thickness: 2,
+            );
+          },
+          itemCount: arrName.length),
     );
   }
 }
