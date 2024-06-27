@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_proj/ui_helper/util.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,16 +42,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var arrName = ['Ram', 'Pranjal', 'Ramdev', 'Siya'];
+    var arrName = ['Ram', 'Pranjal', 'Ramdev','Siya'];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView.separated(
+      body:
+
+      ListView.separated(
           itemBuilder: (context, index) {
             return ListTile(
               leading: CircleAvatar(
@@ -60,23 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 // maxRadius: 20,
                 backgroundImage: AssetImage('assets/images/ramdevlodhi.jpg'),
               ),
-              title: Text(arrName[index], style: TextStyle(fontSize: 20,
-                  fontFamily: 'MyFont',
-                  fontWeight: FontWeight.bold)),
-              subtitle: Text('Hello', style: mTextStyle20(),),
+              title: Text(arrName[index], style: TextStyle(fontSize: 20,fontFamily: 'MyFont',fontWeight: FontWeight.bold)),
+              subtitle:Text('Hello', style: TextStyle(fontSize: 20)) ,
               trailing: Icon(Icons.add),
             );
-            // height: 200, width: 200,
-            // child: Image.asset('assets/images/avatar.jpg')),
-            // ElevatedButton(
-            // onPressed: () {
-            // print('hello');
-            // },
-            // child: Text('click me', style: TextStyle(fontSize: 30)))
-            // ],
-            // ),
-            // child: Center(child: Image.asset('assets/images/avatar.jpg'))
-            // ));
 
 
           },
