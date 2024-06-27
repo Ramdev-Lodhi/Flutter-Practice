@@ -119,7 +119,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 200, width: 200,
                   child: Image.asset('assets/images/avatar.jpg')),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    print('hello');
+                  },
                   child: Text('click me', style: TextStyle(fontSize: 30)))
             ],
           ),
