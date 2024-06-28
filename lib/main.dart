@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'Pushpendra',
       'Mahima'
     ];
-    var arrColor =[
+    var arrColor = [
       Colors.black,
       Colors.green,
       Colors.lightBlue,
@@ -72,78 +72,167 @@ class _MyHomePageState extends State<MyHomePage> {
       Colors.purple,
       Colors.cyan,
       Colors.blueAccent
-
     ];
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: GridView.builder(itemBuilder:(context, index){
-        return Container(color: arrColor[index],);
-
-        },
-        //   itemCount: arrColor.length,gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //   crossAxisCount: 3,
-        //   crossAxisSpacing: 11,
-        //   mainAxisSpacing: 11
-        // ),
-          itemCount: arrColor.length,gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            mainAxisSpacing: 11,crossAxisSpacing: 11
+        body: Container(
+          child: Column(
+            children: [
+              topItems(),
+              mid1Itmes(),
+              mid2Itmes(),
+              bottomItmes(),
+            ],
           ),
+        ));
+  }
+}
 
+class topItems extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.cyan,
+        child: ListView.builder(
+          itemBuilder: (context, index) => SizedBox(
+            width: 200,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                // backgroundColor: Colors.brown,
+                backgroundImage: AssetImage('assets/images/ramdevlodhi.jpg'),
+              ),
+            ),
+          ),
+          itemCount: 10,
+          scrollDirection: Axis.horizontal,
+        ),
+      ),
+    );
+  }
+}
 
-        )
+class mid1Itmes extends StatelessWidget {
+  var arrName = [
+    'Ram',
+    'Pranjal',
+    'Ramdev',
+    'Siya',
+    'Amit',
+    'Prashant',
+    'Prayansh',
+    'Triveni',
+    'Pushpendra',
+    'Mahima'
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 4,
+      child: Container(
+        color: Colors.green,
+        child: ListView.builder(
+          itemBuilder: (context, index) => ListTile(
+            leading: CircleAvatar(
+              backgroundImage: AssetImage('assets/images/ramdevlodhi.jpg'),
+            ),
+            title: Text(arrName[index], style: TextStyle(fontSize: 20,fontFamily: 'MyFont',fontWeight: FontWeight.bold)),
+            subtitle: Text('Mobile'),
+            trailing: Icon(Icons.delete),
+          ),
+          itemCount: arrName.length,
+          scrollDirection: Axis.vertical,
+        ),
+      ),
+    );
+  }
+}
 
+class mid2Itmes extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: Container(
+        color: Colors.amber,
+        child: ListView.builder(
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 200,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+               image: DecorationImage(
+                 image: AssetImage('assets/images/ramdevlodhi.jpg'),
+                 fit: BoxFit.cover,
+                 colorFilter: ColorFilter.mode(Colors.indigo.withOpacity(0.5), BlendMode.dstATop),
+               ),
+                  // image:Image.asset('assets/images/ramdevlodhi.jpg'),
+                  color: Colors.indigo),
+            ),
+          ),
+          itemCount: 10,
+          scrollDirection: Axis.horizontal,
+        ),
+      ),
+    );
+  }
+}
 
-
-        // Column(
-        //   children: [
-        //     Container(
-        //       height: 200,
-        //       child: GridView.count(crossAxisCount: 8,
-        //       crossAxisSpacing: 11,
-        //       mainAxisSpacing: 11,
-        //       children: [
-        //         Container(color:arrColor[0],),
-        //         Container(color:arrColor[1],),
-        //         Container(color:arrColor[2],),
-        //         Container(color:arrColor[3],),
-        //         Container(color:arrColor[4],),
-        //         Container(color:arrColor[5],),
-        //         Container(color:arrColor[6],),
-        //         Container(color:arrColor[7],),
-        //         Container(color:arrColor[8],),
-        //         Container(color:arrColor[9],),
-        //
-        //         ]
-        //       ),
-        //
-        //     ),
-        //     Container(
-        //       height: 200,
-        //       child: GridView.extent(maxCrossAxisExtent: 100,
-        //           mainAxisSpacing: 11,
-        //           crossAxisSpacing: 11,
-        //           children: [
-        //             Container(color:arrColor[0],),
-        //             Container(color:arrColor[1],),
-        //             Container(color:arrColor[2],),
-        //             Container(color:arrColor[3],),
-        //             Container(color:arrColor[4],),
-        //             Container(color:arrColor[5],),
-        //             Container(color:arrColor[6],),
-        //             Container(color:arrColor[7],),
-        //             Container(color:arrColor[8],),
-        //             Container(color:arrColor[9],)
-        //
-        //           ]),
-        //     ),
-        //   ],
-        // ),
-
-
+class bottomItmes extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.deepPurpleAccent,
+        child: GridView.count(
+          crossAxisCount: 4,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(11),
+                  color: Colors.red,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
