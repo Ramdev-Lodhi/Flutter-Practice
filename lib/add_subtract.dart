@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_proj/introPage.dart';
 import 'package:flutter_proj/ui_helper/util.dart';
 import 'package:flutter_proj/widgets/rounded_btn.dart';
 import 'package:intl/intl.dart';
@@ -22,8 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  IntroPage(),
-      // home: const MyHomePage(title: 'Dashboard '),
+      home: const MyHomePage(title: 'Dashboard '),
     );
   }
 }
