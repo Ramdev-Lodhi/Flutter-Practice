@@ -20,7 +20,7 @@ class RoundedButton extends StatelessWidget {
     return ElevatedButton(
         onPressed: () {
           callBack!();
-        },
+      },
         child: icon != null
             ? Row(
           mainAxisAlignment: MainAxisAlignment.center,
