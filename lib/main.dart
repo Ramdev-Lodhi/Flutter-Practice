@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_proj/introPage.dart';
+import 'package:flutter_proj/splash_screen.dart';
 import 'package:flutter_proj/ui_helper/util.dart';
 import 'package:flutter_proj/widgets/rounded_btn.dart';
 import 'package:intl/intl.dart';
@@ -16,13 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home:  IntroPage(),
+      home: SplashScreen(),
       // home: const MyHomePage(title: 'Dashboard '),
     );
   }
@@ -39,15 +34,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
   get child => null;
-
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
-
   void _decrementCounter() {
     setState(() {
       _counter--;

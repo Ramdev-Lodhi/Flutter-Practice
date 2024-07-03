@@ -3,6 +3,9 @@ import 'package:flutter_proj/Login.dart';
 import 'package:flutter_proj/add_subtract.dart';
 
 class IntroPage extends StatelessWidget {
+var logindata;
+var psss;
+IntroPage(this.logindata,this.psss);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,13 +14,15 @@ class IntroPage extends StatelessWidget {
         backgroundColor: Colors.lightBlue,
       ),
       drawer: Drawer(
-        width: 150,
+        // width: 150,
+        width: double.infinity,
         child: ListView(
 
           padding: EdgeInsets.zero,
           children: <Widget>[
             Container(
-              height: 90,
+              height: 110,
+              width: 100,
               child: DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.lightBlue,
@@ -74,7 +79,7 @@ class IntroPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Text('Main Content'),
+        child: Text('Welcome ,$logindata', style: TextStyle(fontSize: 30),),
       ),
     );
   }

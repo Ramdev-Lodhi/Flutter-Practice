@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_proj/introPage.dart';
 import 'package:flutter_proj/ui_helper/util.dart';
-
-
-
-
 
 class Login extends StatefulWidget {
   const Login({super.key, required this.title});
@@ -22,11 +19,13 @@ class _Login extends State<Login> {
       _counter++;
     });
   }
+
   var emailText = TextEditingController();
-  var password=TextEditingController();
+  var password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    var time=DateTime.now();
+    var time = DateTime.now();
     var arrName = [
       'Ram',
       'Pranjal',
@@ -41,15 +40,14 @@ class _Login extends State<Login> {
     ];
     return Scaffold(
         appBar: AppBar(
-
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
         body: Center(
           child: Card(
-            color: Colors.white30,
+            color: Colors.cyan,
             shadowColor: Colors.black,
-            elevation:8,
+            elevation: 8,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -61,18 +59,34 @@ class _Login extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Center(child: Text("Login" ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
+                      Container(
+                          decoration: BoxDecoration(color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(21),
+                            bottomRight: Radius.circular(21),
+                          )
+
+                              ),
+
+                          margin: EdgeInsets.only(left: 100, right: 100),
+                          child: Center(
+                              child: Text(
+                            "Login",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ))),
                       // Center(child: Text("Login" '${time}',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)),
                       TextField(
+                        style: TextStyle(fontSize: 25,color: Colors.white),
                         // keyboardType: TextInputType.phone,
                         controller: emailText,
-
                         decoration: InputDecoration(
+
                             hintText: "Enter Email here....",
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(17),
-                              borderSide: BorderSide(color: Colors.red, width: 2),
-
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(17),
@@ -85,8 +99,8 @@ class _Login extends State<Login> {
                                 borderRadius: BorderRadius.circular(17),
                                 borderSide: BorderSide(
                                   color: Colors.blue,
-                                  width: 2,)
-                            ),
+                                  width: 2,
+                                )),
                             // suffixText: "Username Exists",
                             // suffixIcon: IconButton(
                             //   icon: Icon(Icons.remove_red_eye,color: Colors.blue,), onPressed: () { print("icon"); },
@@ -100,6 +114,7 @@ class _Login extends State<Login> {
                       ),
 
                       TextField(
+                        style: TextStyle(fontSize: 25),
                         controller: password,
                         obscureText: true,
                         obscuringCharacter: "*",
@@ -107,15 +122,18 @@ class _Login extends State<Login> {
                             hintText: "Enter Password here....",
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(17),
-                              borderSide: BorderSide(color: Colors.red, width: 2),
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(17),
-                              borderSide: BorderSide(color: Colors.blue, width: 2),
+                              borderSide:
+                                  BorderSide(color: Colors.blue, width: 2),
                             ),
                             disabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(17),
-                              borderSide: BorderSide(color: Colors.blue, width: 2),
+                              borderSide:
+                                  BorderSide(color: Colors.blue, width: 2),
                             ),
                             prefixIcon: Icon(Icons.remove_red_eye),
                             border: OutlineInputBorder(
@@ -123,7 +141,6 @@ class _Login extends State<Login> {
                                 borderSide: BorderSide(
                                   color: Colors.blue,
                                 ))),
-
                       ),
                       Container(
                         height: 100,
@@ -131,13 +148,21 @@ class _Login extends State<Login> {
                       ElevatedButton(
                           onPressed: () {
                             setState(() {});
-                            String uEmail =emailText.text.toString();
-                            String uPass =password.text;
-                            print("Email : $uEmail , Password : $uPass");
+                            String uEmail = emailText.text.toString();
+                            String uPass = password.text;
+                            // print("Email : $uEmail , Password : $uPass");
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        IntroPage(uEmail, uPass)));
                           },
-
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
-                          child: Text('Login',style: TextStyle(color: Colors.white),))
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue),
+                          child: Text(
+                            'Login',
+                            style: TextStyle(color: Colors.white),
+                          ))
                     ],
                   ),
                 ),
